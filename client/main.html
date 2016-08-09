@@ -6,13 +6,29 @@
 
 </body>
 
+<template name="barChart">
+    <h2>Bar Chart</h2>
+    <canvas id="barChart" width="400" height="400"></canvas>
+    <div class="dropdown" style="float:right">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Filter
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#">1 Day Ago</a></li>
+            <li><a href="#">7 Days Ago</a></li>
+            <li><a href="#">1 Month Ago</a></li>
+        </ul>
+    </div>
+</template>
+
 <template name="charts">
-  <!-- <canvas id="myChart" width="400" height="400"></canvas>
-  <canvas id="myChart2" width="400" height="400"></canvas> -->
-  <canvas id="myChart3" width="400" height="400"></canvas>
+
+  <canvas id="myChart3" width="400" height="400" style="width: 400px;height: 400px"></canvas>
+
   {{#if isFieldError}}
   <div class="alert alert-danger">
-  Please fill up atleast one value
+  Please fill up at least one value
   </div>
   {{/if}}
 
@@ -50,6 +66,7 @@
 <template name="navigation">
     <ul>
         <li><a href="{{pathFor route='home'}}">Home</a></li>
-        <li><a href="{{pathFor route='pieChart'}}">Reactive Chart</a></li>
+        <li><a href="{{pathFor route='pieChart'}}">Reactive Pie Chart</a></li>
+        <li><a href="{{pathFor route='barChart'}}">Reactive Bar Chart With Filters</a></li>
     </ul>
 </template>

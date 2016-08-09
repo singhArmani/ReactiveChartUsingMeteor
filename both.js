@@ -1,4 +1,5 @@
 Collection = new Mongo.Collection('chart');
+barCollection = new Mongo.Collection('barChart');
 
 Meteor.methods({
 	'updateColorValue':(colorValueObj) =>{
