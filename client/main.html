@@ -1,0 +1,55 @@
+<head>
+  <title>exampleChartMeteor</title>
+</head>
+
+<body>
+
+</body>
+
+<template name="charts">
+  <!-- <canvas id="myChart" width="400" height="400"></canvas>
+  <canvas id="myChart2" width="400" height="400"></canvas> -->
+  <canvas id="myChart3" width="400" height="400"></canvas>
+  {{#if isFieldError}}
+  <div class="alert alert-danger">
+  Please fill up atleast one value
+  </div>
+  {{/if}}
+
+  <form id="myform">
+    <div class="form-group">
+      <labal>Yellow</labal>
+      <input type="text" class="form-control" id="yellow" placeholder="Enter value for yellow" >
+
+      <labal>Red</labal>
+      <input type="text" class="form-control" id="red" placeholder="Enter value for yellow">
+
+      <labal>Green</labal>
+      <input type="text" class="form-control" id="green" placeholder="Enter value for yellow">
+      <hr/>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+  
+</template>
+
+<template name="home">
+  <h3>Drawing Charts using chartJs --- Home page</h3>
+</template>
+
+<template name="main">
+<div class="container">
+  <h1>Reactive Charts in Meteor</h1>
+  {{> navigation}}
+  {{> yield}}
+  <hr/>
+  <p>Copyright &copy; Drawing Chart, 2014-2015.</p>
+  </div>
+</template>
+
+<template name="navigation">
+    <ul>
+        <li><a href="{{pathFor route='home'}}">Home</a></li>
+        <li><a href="{{pathFor route='pieChart'}}">Reactive Chart</a></li>
+    </ul>
+</template>
