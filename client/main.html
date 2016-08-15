@@ -7,23 +7,28 @@
 </body>
 
 <template name="barChart">
-    <h2>Bar Chart</h2>
+    <h4>Bar Chart</h4>
+
+    <!--<div class="dropdown" style="float:left">-->
+        <!--<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">-->
+            <!--Filter-->
+            <!--<span class="caret"></span>-->
+        <!--</button>-->
+        <!--<ul class="dropdown-menu" id="dropdown" aria-labelledby="dropdownMenu1">-->
+            <!--<li><a href="#" id="one">1 Day Ago</a></li>-->
+            <!--<li><a href="#" id="seven">7 Days Ago</a></li>-->
+            <!--<li><a href="#" id="month">1 Month Ago</a></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+
     <canvas id="barChart" width="400" height="400"></canvas>
-    <div class="dropdown" style="float:right">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Filter
-            <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="#">1 Day Ago</a></li>
-            <li><a href="#">7 Days Ago</a></li>
-            <li><a href="#">1 Month Ago</a></li>
-        </ul>
-    </div>
+    <hr/>
+
+
 </template>
 
 <template name="charts">
-
+    <h4>Pie Chart</h4>
   <canvas id="myChart3" width="400" height="400" style="width: 400px;height: 400px"></canvas>
 
   {{#if isFieldError}}
@@ -31,7 +36,8 @@
   Please fill up at least one value
   </div>
   {{/if}}
-
+<hr/>
+    <h5>Update the colors values</h5>
   <form id="myform">
     <div class="form-group">
       <labal>Yellow</labal>

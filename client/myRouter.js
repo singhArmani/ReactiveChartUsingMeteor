@@ -16,6 +16,7 @@ Router.route('/charts',{
 
 //Bar Chart
 Router.route('/BarChart',{
+    waitOn:() => Meteor.subscribe('barCollection'),
     name:'barChart',
     template:'barChart'
 });

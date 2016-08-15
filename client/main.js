@@ -63,6 +63,8 @@ Template.charts.events({
 	}
 });
 
+
+
 //helpers
 
 Template.charts.helpers({
@@ -77,6 +79,23 @@ function getColorValue()
    var valueYel = Collection.find({"colorName":"Yellow"}).fetch();
    var valueGreeen = Collection.find({"colorName":"Green"}).fetch();
    return  Object.assign({},{red:valueRed[0].colorValue,yellow:valueYel[0].colorValue, green:valueGreeen[0].colorValue});
+}
+
+function getBarValue(){
+    // var currentTime = new Date().getTime();
+    //
+    // var fromDate = new Date(fromDateTime);
+
+    var filter ={'createdOn':{
+        //$gte:new Date(new Date().getTime()-day*24*60*60*1000),
+        $lte:new Date()
+    }};
+    var myBarArray = barCollection.find(filter).fetch();
+    var myNewArray =[];
+    myBarArray.forEach((element)=>{
+        myNewArray.push({monthName:element.monthName,monthData:element.monthData,createdOn:element.createdOn});
+    })
+    return myNewArray;
 }
 
 function drawPieChart(){
@@ -115,8 +134,9 @@ myPieChart = new Chart(ctx3, {
 }
 
 function drawBarChart(){
+    var df =getBarValue();
     var barChart = document.getElementById("barChart").getContext("2d");
-
+    console.log(getBarValue());
     //setting up the data
     var data = {
         labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -140,14 +160,27 @@ function drawBarChart(){
                     'rgba(255, 159, 64, 1)'
                 ],
                 borderWidth: 1,
-                data: [65, 59, 80, 81, 56, 55, 40],
+                data: [parseInt(df[0].monthData), parseInt(df[1].monthData),
+                    parseInt(df[2].monthData), parseInt(df[3].monthData),
+                    parseInt(df[4].monthData), parseInt(df[5].monthData),
+                    parseInt(df[6].monthData)],
             }
         ]
     };
 
     myBarChart = new Chart(barChart,{
        type:'bar',
-        data:data
+        data:data,
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
     });
   // myBarChart = new Chart(barChart).Bar(data);
 }
+
